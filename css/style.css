@@ -1,0 +1,11 @@
+
+*:focus {
+    outline: 0;
+}
+
+body, input[type=text]
+{
+    background-color: black;
+    color: greenyellow;
+    border:none;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- ---- -->
+
+    <!-- Scripts -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/context.js"></script>
+    <script src="js/services/inputHandler.js"></script>
+    <script src="js/directives/standardOutput.js"></script>
+    <script src="js/directives/commandPromt.js"></script>
+    <script src="js/controllers/mainCtrl.js"></script>
+    <!-- ---- -->
+
+</head>
+<body ng-app="whitesparrow">
+
+<div ng-controller="mainCtrl as main">
+
+
+    <standard-output></standard-output>
+    <command-prompt></command-prompt>
+
+</div>
+
+
+</body>
+</html>
