@@ -8,4 +8,5 @@ body, input[type=text]
     background-color: black;
     color: greenyellow;
     border:none;
+    white-space: pre-wrap;
 }

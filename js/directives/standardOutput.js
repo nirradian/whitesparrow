@@ -1,11 +1,9 @@
 app.directive('standardOutput', ['context', function(context) {
     return {
         restrict: 'E',
-        template: '<p ng-repeat="line in getStdOut() track by $index">{{line}}</p>',
+        template: '<p ng-repeat="line in context.stdOut track by $index">{{line}}</p>',
         controller: function ($scope, $element) {
-            $scope.getStdOut = function() {
-                return context.stdOut;
-            }
+            $scope.context = context.data;
         }
     };
 

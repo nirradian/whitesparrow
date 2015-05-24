@@ -1,27 +1,26 @@
-app.directive('commandPrompt', ['context', 'inputHandler', function(context, inputHandler) {
+app.directive('commandPrompt', ['context', 'inputHandler', '$timeout', function(context, inputHandler, $timeout) {
     return {
         restrict: 'E',
         bindToController: true,
-        controller: function () {
+        controller: function ($scope) {
 
-            this.promptToggle = true;
-            this.inputText = "try me";
+            $scope.context = context.data;
+            $scope.prompt = ">";
+            $scope.promptToggle = true;
 
-            this.keyPress = function($event)
+            $scope.keyPress = function($event)
             {
                 if ($event.keyCode == 13)
                 {
-                    this.promptToggle = false;
                     var command = this.inputText;
                     this.inputText = "";
+
                     inputHandler.try(command);
 
-                    this.promptToggle = true;
                 }
             };
         },
-        controllerAs: 'ctrl',
-        template: '><input ng-if="ctrl.promptToggle" type="text" ng-model="ctrl.inputText" ng-keyup="ctrl.keyPress($event);">'
+        template: '<div ng-if="context.promptEnabled == true">{{context.prompt}}<input type="text" ng-model="inputText" ng-keyup="keyPress($event);"></div>'
 
     };
 }]);
